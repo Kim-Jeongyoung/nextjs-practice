@@ -7,8 +7,39 @@ import LogoDark from 'assets/logo.svg';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
+// https://www.npmjs.com/package/react-scroll
+
 export default function Header({ className }) {
-  return <header sx={styles.header} className="{className"></header>;
+  return (
+    <header sx={styles.header} className={className}>
+      <Container sx={styles.container}>
+        <Logo src={LogoDark} />
+        <Flex as="nav" sx={styles.nav}>
+          {menuItems.map((menuItem, i) => (
+            <Link
+              activeClass="active"
+              to={menuItem.path}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              key={i}
+            >
+              {menuItem.label}
+            </Link>
+          ))}
+        </Flex>
+        <Button
+          className="donat__btn"
+          variant="secondary"
+          aira-label="Get Started"
+        >
+          Get Started
+        </Button>
+        <MobileDrawer />
+      </Container>
+    </header>
+  );
 }
 
 const positionAnim = keyframes`

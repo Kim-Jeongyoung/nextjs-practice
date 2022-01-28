@@ -7,7 +7,24 @@ import ShapeRight from 'assets/shape-right.png';
 
 export default function Banner() {
   return (
-    <h1>Banner</h1>
+    <section sx={styles.banner} id="home">
+      <Container sx={styles.banner.container}>
+        <Box sx={styles.banner.contentBox}>
+          <Heading as="h1" variant="heroSecondary">
+            Top quality Ddigital Products to Explore
+          </Heading>
+          <Text>
+            Check our Website to find great softward products and deals. If you
+            need a web applicatuin this is the place.
+          </Text>
+          <Button variant="primary">Explore</Button>
+        </Box>
+        {/* 배너에 이미지 추가하는 부분 */}
+        <Box sx={styles.banner.imageBox}>
+          <Image src={BannerImg} alt="banner"></Image>
+        </Box>
+      </Container>
+    </section>
   );
 }
 

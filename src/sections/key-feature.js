@@ -45,7 +45,15 @@ const data = [
 
 export default function KeyFeature() {
   return (
-   <h1>Key Feature</h1>
+    <section sx={{ variant: 'section.KeyFeature' }} id="feature">
+      <Container>
+        {/* component가서 만들기 */}
+        <SectionHeader
+          slogan="What's the function?"
+          title="Meet the feature of our product"
+        />
+      </Container>
+    </section>
   );
 }
 
