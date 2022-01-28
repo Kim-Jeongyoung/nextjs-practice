@@ -45,7 +45,27 @@ const data = [
 
 export default function Feature() {
   return (
-   <h1>Feature</h1>
+    <section sx={{ variant: 'section.feature' }}>
+      <Container>
+        {/* section-header.js에서 가져와서 씀 slogan & title */}
+        <SectionHeader
+          slogan="나는 피쳐 섹션이다."
+          title="나는 어메이징하고 사용하기 편한 피쳐 섹션이야"
+        />
+
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <FeatureCard
+              key={item.id}
+              src={item.imgSrc}
+              alt={item.altText}
+              title={item.title}
+              text={item.text}
+            ></FeatureCard>
+          ))}
+        </Grid>
+      </Container>
+    </section>
   );
 }
 

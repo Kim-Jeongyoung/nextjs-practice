@@ -49,7 +49,7 @@ export default function KeyFeature() {
       <Container>
         {/* component가서 만들기 */}
         <SectionHeader
-          slogan="What's the function?"
+          slogan="키 피쳐엔 뭘 넣을까?"
           title="Meet the feature of our product"
         />
 

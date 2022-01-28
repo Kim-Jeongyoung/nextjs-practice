@@ -36,7 +36,29 @@ const data = [
 
 export default function WorkFlow() {
   return (
-    <h1>Workflow</h1>
+    <section sx={styles.workflow}>
+      <Container>
+        <SectionHeader
+          slogan="워크 플로우"
+          title="Meet the feature of our product"
+          // inside sectionHeater에 isWhite내용 있음
+          isWhite={true}
+        />
+
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <Box sx={styles.card} key={item.id}>
+              {/* 번호만들기 */}
+              <Box sx={styles.iconBox}>{`0${item.id}`}</Box>
+              <Box sx={styles.wrapper}>
+                <Heading sx={styles.wrapper}>{item.title}</Heading>
+                <Text sx={styles.wrapper.subTitle}>{item.text}</Text>
+              </Box>
+            </Box>
+          ))}
+        </Grid>
+      </Container>
+    </section>
   );
 }
 

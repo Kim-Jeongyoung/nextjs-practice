@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 /** @jsx jsx */
-import { jsx, Container, Box, Grid, Text, Heading, Button, Image } from 'theme-ui';
+import {
+  jsx,
+  Container,
+  Box,
+  Grid,
+  Text,
+  Heading,
+  Button,
+  Image,
+} from 'theme-ui';
 import { keyframes } from '@emotion/core';
 import TextFeature from 'components/text-feature';
+// 비디오 클릭 했을 때 모달로 떠서 실행되게 하는 것
 import ModalVideo from 'react-modal-video';
 import { IoIosPlay } from 'react-icons/io';
 
@@ -13,7 +23,7 @@ import Smart from 'assets/services/smart.svg';
 import Secure from 'assets/services/secure.svg';
 
 const data = {
-  subTitle: 'our services',
+  subTitle: '서비스 섹션 문제 발생 왜 윗 페이지와 붙었나?',
   title: 'Business Goals Achieved with Design',
   features: [
     {
@@ -36,8 +46,60 @@ const data = {
 };
 
 export default function ServiceSection() {
+  const [videoOpen, setVideoOpen] = useState('false');
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    setVideoOpen(true);
+  };
   return (
-    <h1>Service Section</h1>
+    <section sx={{ variant: 'section.services' }}>
+      <Container sx={styles.containerBox}>
+        <Box sx={styles.thumbnail}>
+          <Image src={ServiceThumb} alt="Thumbnail" />
+          <Button
+            sx={styles.videoBtn}
+            onClick={handleClick}
+            aria-label="Play Button"
+          >
+            {/* 동그라미 안 세모 비디오 시작 버튼 모양  */}
+            <span>
+              <IoIosPlay />
+            </span>
+          </Button>
+          <Box sx={styles.shapeBox}>
+            <Image src={shapePattern} alt="shape" />
+          </Box>
+        </Box>
+        {/* 오늘쪽에 컨텐트 Box 하나 더 만들어 주기 */}
+        <Box sx={styles.contentBox}>
+          <TextFeature subTitle={data.subTitle} title={data.title} />
+
+          <Grid sx={styles.gird}>
+            {data.features.map((feature) => (
+              <Box sx={styles.card} key={feature.id}>
+                <Image
+                  src={feature.imgSrc}
+                  alt={feature.altText}
+                  sx={styles.icon}
+                />
+
+                <Box sx={styles.Wrapper}>
+                  <Heading sx={styles.wrapper.title}>{feature.title}</Heading>
+                  <Text sx={styles.wrapper.subtitle}>{feature.text}</Text>
+                </Box>
+              </Box>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+      <ModalVideo
+        channel="youtube"
+        isOpen={videoOpen}
+        videoId="_qNmbXRZtfY"
+        onClose={() => setVideoOpen(false)}
+      ></ModalVideo>
+    </section>
   );
 }
 

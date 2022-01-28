@@ -14,8 +14,8 @@ export default function Banner() {
             Top quality Ddigital Products to Explore
           </Heading>
           <Text>
-            Check our Website to find great softward products and deals. If you
-            need a web applicatuin this is the place.
+            하하하 배너 뭘 만들면 좋을까? 이 웹으로? 무어이든 만들어볼까?
+            그래그래 need a web applicatuin this is the place.
           </Text>
           <Button variant="primary">Explore</Button>
         </Box>
