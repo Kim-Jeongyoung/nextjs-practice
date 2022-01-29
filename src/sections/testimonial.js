@@ -77,31 +77,61 @@ const responsive = {
 };
 
 const carouselParams = {
-  additionalTransfrom:0,
-  arrows:false,
-  autoPlaySpeed:3000,
-  centerMode:false,
-  className:"",
-  containerClass:"carousel-container",
-  customButtonGroup:<ButtonGroup />,
-  dotListClass:"",
+  additionalTransfrom: 0,
+  arrows: false,
+  autoPlaySpeed: 3000,
+  centerMode: false,
+  className: '',
+  containerClass: 'carousel-container',
+  customButtonGroup: <ButtonGroup />,
+  dotListClass: '',
   draggable: true,
-  focusOnSelect:false,
-  infinite:true,
-  itemClass:"",
+  focusOnSelect: false,
+  infinite: true,
+  itemClass: '',
   keyBoardControl: true,
-  minimumTouchDrag:80,
+  minimumTouchDrag: 80,
   renderButtonGroupOutside: true,
-  renderDotsOutside:false,
-  responsive:responsive,
-  showDots:false,
-  sliderClass:"",
-  slidesToSlide:1,
-}
+  renderDotsOutside: false,
+  responsive: responsive,
+  showDots: false,
+  sliderClass: '',
+  slidesToSlide: 1,
+};
 
 export default function TestimonialCard() {
   return (
-   <h1>Testimonial Card</h1>
+    <section id="testimonial" sx={{ variant: 'section.testimonial' }}>
+      <Container css={{ textAlign: 'center' }}>
+        <SectionHeader slogan="Testimonial" title="Meet Client Satisfaction" />
+      </Container>
+      <Box sx={styles.carouselWrapper}>
+        <Carousel {...carouselParams}>
+          {data.map((item) => (
+            <Box sx={styles.reviewCard} key={item.sliderClass}>
+              {/* 별모양 rating 만들기 rating.js compo */}
+              <Rating rating={item.review} />
+              {/* 컨텐츠 만들기 */}
+              <Heading as="h3" sx={styles.title}>
+                {item.title}
+              </Heading>
+              <Text sx={styles.description}>{item.description}</Text>
+              <div className="card-footer">
+                <div className="image">
+                  <Image src={item.avatar} alt="Client Image" />
+                </div>
+                <div className="review-info">
+                  <Heading as="h4" sx={styles.heading}>
+                    {item.name}
+                  </Heading>
+                  <Text sx={styles.designation}>{item.designation}</Text>
+                </div>
+              </div>
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
+    </section>
   );
 }
 
