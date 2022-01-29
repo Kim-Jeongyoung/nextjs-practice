@@ -304,7 +304,7 @@ export default function Package() {
               aria-label="Annual"
               onClick={() => handlePricingPlan('annual')}
             >
-              Monthly Plan
+              Annual Plan
             </button>
           </Box>
         </Flex>
@@ -324,14 +324,6 @@ export default function Package() {
 {
   /* loop over our pricing plan */
 }
-//  <Carousel {...sliderParams}>
-
-//             {state.pricingPlan.map((packageData) => (
-//               <Box sx={styles.pricingItem} key={packageData.id}>
-//                 <PriceCard />
-//               </Box>
-//             ))}
-//           </Carousel>
 
 const fadeIn = keyframes`
   from {
